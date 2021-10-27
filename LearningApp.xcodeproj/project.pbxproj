@@ -16,6 +16,7 @@
 		63E062332728CAA100F1188E /* style.html in Resources */ = {isa = PBXBuildFile; fileRef = 63E062312728CAA100F1188E /* style.html */; };
 		63E062352728CE4000F1188E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E062342728CE4000F1188E /* Models.swift */; };
 		63E0623B2728D57900F1188E /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E0623A2728D57900F1188E /* Services.swift */; };
+		63E0623F27298F2C00F1188E /* HomeViewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E0623E27298F2C00F1188E /* HomeViewCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		63E062312728CAA100F1188E /* style.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = style.html; sourceTree = "<group>"; };
 		63E062342728CE4000F1188E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		63E0623A2728D57900F1188E /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		63E0623E27298F2C00F1188E /* HomeViewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				63E0621B2728A7EA00F1188E /* HomeView.swift */,
+				63E0623E27298F2C00F1188E /* HomeViewCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				63E062352728CE4000F1188E /* Models.swift in Sources */,
 				63E0621A2728A7EA00F1188E /* LearningApp.swift in Sources */,
 				63E0622C2728A8C700F1188E /* ContentModel.swift in Sources */,
+				63E0623F27298F2C00F1188E /* HomeViewCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

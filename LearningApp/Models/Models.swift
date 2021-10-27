@@ -18,20 +18,47 @@ struct Module: Decodable, Identifiable {
 
 // MARK: Middle Level Models - Content and Test
 
-struct Content: Decodable, Identifiable {
+// Makes constructing the generic reusable views easier
+protocol UserActionModel: Decodable, Identifiable {
+    var id: Int { get }
+    var image: String { get }
+    var time: String { get }
+    var description: String { get }
+    
+    func userAction(_ category: String) -> String
+    func userWorkload() -> String
+}
+
+struct Content: UserActionModel {
     var id: Int
     var image: String
     var time: String
     var description: String
     var lessons: [Lesson]
+    
+    func userAction(_ category: String) -> String {
+        return "Learn \(category)"
+    }
+    
+    func userWorkload() -> String {
+        return "\(lessons.count) Lessons"
+    }
 }
 
-struct Test: Decodable, Identifiable {
+struct Test: UserActionModel {
     var id: Int
     var image: String
     var time: String
     var description: String
     var questions: [Question]
+    
+    func userAction(_ category: String) -> String {
+        return "\(category) Test"
+    }
+    
+    func userWorkload() -> String {
+        return "\(questions.count) Questions"
+    }
 }
 
 // MARK: Bottom Level Models - Lesson and Question
