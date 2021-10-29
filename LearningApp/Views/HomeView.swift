@@ -20,11 +20,20 @@ struct HomeView: View {
                     LazyVStack {
                         ForEach(contentModel.modules) { module in
                             VStack (spacing: 20) {
-                                HomeViewCard(userActionType: module.content, category: module.category)
+                                // MARK: Content Card
+                                NavigationLink(destination: ContentView().onAppear(perform: {
+                                    contentModel.beginModule(module.id)
+                                })) {
+                                    // MARK: Content Card
+                                    HomeViewCard(userActionType: module.content, category: module.category)
+                                }
+                                
+                                // MARK: Test Card
                                 HomeViewCard(userActionType: module.test, category: module.category)
                             }
                         }
                     }
+                    .accentColor(.black)
                     .padding()
                 }
             }

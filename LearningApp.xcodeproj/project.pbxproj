@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6380FFAF272C63CA001C1584 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380FFAE272C63CA001C1584 /* ContentView.swift */; };
 		63E0621A2728A7EA00F1188E /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E062192728A7EA00F1188E /* LearningApp.swift */; };
 		63E0621C2728A7EA00F1188E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E0621B2728A7EA00F1188E /* HomeView.swift */; };
 		63E0621E2728A7EB00F1188E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E0621D2728A7EB00F1188E /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6380FFAE272C63CA001C1584 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		63E062162728A7EA00F1188E /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E062192728A7EA00F1188E /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		63E0621B2728A7EA00F1188E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				63E0621B2728A7EA00F1188E /* HomeView.swift */,
 				63E0623E27298F2C00F1188E /* HomeViewCard.swift */,
+				6380FFAE272C63CA001C1584 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			files = (
 				63E0623B2728D57900F1188E /* Services.swift in Sources */,
 				63E0621C2728A7EA00F1188E /* HomeView.swift in Sources */,
+				6380FFAF272C63CA001C1584 /* ContentView.swift in Sources */,
 				63E062352728CE4000F1188E /* Models.swift in Sources */,
 				63E0621A2728A7EA00F1188E /* LearningApp.swift in Sources */,
 				63E0622C2728A8C700F1188E /* ContentModel.swift in Sources */,
