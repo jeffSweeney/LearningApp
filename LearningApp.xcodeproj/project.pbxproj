@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63496B10272D9377005AEA77 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63496B0F272D9377005AEA77 /* AVKit.framework */; };
+		63496B12272D95B0005AEA77 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63496B11272D95B0005AEA77 /* Constants.swift */; };
 		6380FFAF272C63CA001C1584 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380FFAE272C63CA001C1584 /* ContentView.swift */; };
 		63AFE6F6272CC51B00EB8298 /* ContentViewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AFE6F5272CC51B00EB8298 /* ContentViewCard.swift */; };
+		63AFE6F8272CC73C00EB8298 /* ContentViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AFE6F7272CC73C00EB8298 /* ContentViewDetail.swift */; };
 		63E0621A2728A7EA00F1188E /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E062192728A7EA00F1188E /* LearningApp.swift */; };
 		63E0621C2728A7EA00F1188E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E0621B2728A7EA00F1188E /* HomeView.swift */; };
 		63E0621E2728A7EB00F1188E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E0621D2728A7EB00F1188E /* Assets.xcassets */; };
@@ -22,8 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63496B0D272D9359005AEA77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		63496B0F272D9377005AEA77 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		63496B11272D95B0005AEA77 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6380FFAE272C63CA001C1584 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		63AFE6F5272CC51B00EB8298 /* ContentViewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCard.swift; sourceTree = "<group>"; };
+		63AFE6F7272CC73C00EB8298 /* ContentViewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewDetail.swift; sourceTree = "<group>"; };
 		63E062162728A7EA00F1188E /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E062192728A7EA00F1188E /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		63E0621B2728A7EA00F1188E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -42,17 +49,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63496B10272D9377005AEA77 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63496B0E272D9377005AEA77 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63496B0F272D9377005AEA77 /* AVKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		63E0620D2728A7EA00F1188E = {
 			isa = PBXGroup;
 			children = (
 				63E062182728A7EA00F1188E /* LearningApp */,
 				63E062172728A7EA00F1188E /* Products */,
+				63496B0E272D9377005AEA77 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +84,7 @@
 		63E062182728A7EA00F1188E /* LearningApp */ = {
 			isa = PBXGroup;
 			children = (
+				63496B0D272D9359005AEA77 /* Info.plist */,
 				63E062192728A7EA00F1188E /* LearningApp.swift */,
 				63E0622A2728A86200F1188E /* Views */,
 				63E062292728A85900F1188E /* ViewModels */,
@@ -118,6 +136,7 @@
 				63E0623E27298F2C00F1188E /* HomeViewCard.swift */,
 				6380FFAE272C63CA001C1584 /* ContentView.swift */,
 				63AFE6F5272CC51B00EB8298 /* ContentViewCard.swift */,
+				63AFE6F7272CC73C00EB8298 /* ContentViewDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -127,6 +146,7 @@
 			children = (
 				63E062302728CAA100F1188E /* data.json */,
 				63E062312728CAA100F1188E /* style.html */,
+				63496B11272D95B0005AEA77 /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -207,6 +227,8 @@
 				63E0623B2728D57900F1188E /* Services.swift in Sources */,
 				63E0621C2728A7EA00F1188E /* HomeView.swift in Sources */,
 				6380FFAF272C63CA001C1584 /* ContentView.swift in Sources */,
+				63AFE6F8272CC73C00EB8298 /* ContentViewDetail.swift in Sources */,
+				63496B12272D95B0005AEA77 /* Constants.swift in Sources */,
 				63E062352728CE4000F1188E /* Models.swift in Sources */,
 				63E0621A2728A7EA00F1188E /* LearningApp.swift in Sources */,
 				63E0622C2728A8C700F1188E /* ContentModel.swift in Sources */,
@@ -343,6 +365,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LearningApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LearningApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -371,6 +394,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LearningApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LearningApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

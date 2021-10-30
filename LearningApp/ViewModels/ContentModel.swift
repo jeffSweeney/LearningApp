@@ -9,12 +9,16 @@ import Foundation
 
 class ContentModel: ObservableObject {
     @Published var modules: [Module]
+    var style: Data?
     
     // MARK: properties to keep track of
+    // Current Module
     @Published var currentModule: Module?
     var currentModuleIndex = 0
     
-    var style: Data?
+    // Current Lesson
+    @Published var currentLesson: Lesson?
+    var currentLessonIndex = 0
     
     init() {
         modules = Services.decodeLocalJson(filename: "data")
@@ -33,5 +37,32 @@ class ContentModel: ObservableObject {
         
         // Set the current module
         currentModule = modules[currentModuleIndex]
+    }
+    
+    // MARK: - Lesson Nav Methods
+    func beginLesson(_ lessonIndex: Int) {
+        let lessons = currentModule!.content.lessons
+        
+        currentLessonIndex = lessonIndex < lessons.count ? lessonIndex : 0
+        currentLesson = lessons[currentLessonIndex]
+    }
+    
+    func advanceLesson() {
+        // Advance lesson index
+        currentLessonIndex += 1
+        
+        // Still in range?
+        if currentLessonIndex < currentModule!.content.lessons.count {
+            // Update
+            currentLesson = currentModule!.content.lessons[currentLessonIndex]
+        } else {
+            // Out of lessons. Reset.
+            currentLesson = nil
+            currentLessonIndex = 0
+        }
+    }
+    
+    func hasNextLesson() -> Bool {
+        return (currentLessonIndex + 1) < currentModule!.content.lessons.count
     }
 }

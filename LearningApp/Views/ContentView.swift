@@ -17,12 +17,20 @@ struct ContentView: View {
                 // let's check
                 if let module = contentModel.currentModule {
                     ForEach(0 ..< module.content.lessons.count) { index in
-                        ContentViewCard(index: index)
+                        NavigationLink {
+                            ContentViewDetail()
+                                .onAppear(perform: {
+                                    contentModel.beginLesson(index)
+                                })
+                        } label: {
+                            ContentViewCard(index: index)
+                        }
                     }
                 }
             }
             .padding()
             .navigationTitle("Learn \(contentModel.currentModule?.category ?? "")")
+            .accentColor(.black)
         }
     }
 }
