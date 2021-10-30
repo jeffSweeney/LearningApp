@@ -17,33 +17,7 @@ struct ContentView: View {
                 // let's check
                 if let module = contentModel.currentModule {
                     ForEach(0 ..< module.content.lessons.count) { index in
-                        let lesson = module.content.lessons[index]
-                        
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                                .shadow(radius: 5)
-                                .aspectRatio(CGSize(width: 200, height: 50), contentMode: .fit)
-                            
-                            HStack (alignment: .center, spacing: 20) {
-                                Text(String(index + 1))
-                                    .bold()
-                                    .font(.title2)
-                                
-                                VStack (alignment: .leading, spacing: 5) {
-                                    Text(lesson.title)
-                                        .bold()
-                                        .font(.title2)
-                                    
-                                    Text(lesson.duration)
-                                        .font(.callout)
-                                }
-                                
-                                Spacer()
-                            }
-                            .padding()
-                        }
+                        ContentViewCard(index: index)
                     }
                 }
             }
