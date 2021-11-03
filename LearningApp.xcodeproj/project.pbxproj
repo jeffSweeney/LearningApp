@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		63496B10272D9377005AEA77 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63496B0F272D9377005AEA77 /* AVKit.framework */; };
 		63496B12272D95B0005AEA77 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63496B11272D95B0005AEA77 /* Constants.swift */; };
+		63496B64273314EA005AEA77 /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63496B63273314EA005AEA77 /* CodeTextView.swift */; };
 		6380FFAF272C63CA001C1584 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380FFAE272C63CA001C1584 /* ContentView.swift */; };
 		63AFE6F6272CC51B00EB8298 /* ContentViewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AFE6F5272CC51B00EB8298 /* ContentViewCard.swift */; };
 		63AFE6F8272CC73C00EB8298 /* ContentViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AFE6F7272CC73C00EB8298 /* ContentViewDetail.swift */; };
@@ -28,6 +29,7 @@
 		63496B0D272D9359005AEA77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		63496B0F272D9377005AEA77 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		63496B11272D95B0005AEA77 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		63496B63273314EA005AEA77 /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 		6380FFAE272C63CA001C1584 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		63AFE6F5272CC51B00EB8298 /* ContentViewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCard.swift; sourceTree = "<group>"; };
 		63AFE6F7272CC73C00EB8298 /* ContentViewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewDetail.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				6380FFAE272C63CA001C1584 /* ContentView.swift */,
 				63AFE6F5272CC51B00EB8298 /* ContentViewCard.swift */,
 				63AFE6F7272CC73C00EB8298 /* ContentViewDetail.swift */,
+				63496B63273314EA005AEA77 /* CodeTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				63E0621A2728A7EA00F1188E /* LearningApp.swift in Sources */,
 				63E0622C2728A8C700F1188E /* ContentModel.swift in Sources */,
 				63E0623F27298F2C00F1188E /* HomeViewCard.swift in Sources */,
+				63496B64273314EA005AEA77 /* CodeTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

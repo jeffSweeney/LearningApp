@@ -9,7 +9,10 @@ import Foundation
 
 class ContentModel: ObservableObject {
     @Published var modules: [Module]
-    var style: Data?
+    
+    // Current lesson explanation
+    @Published var lessonDescription = NSAttributedString()
+    var styleData: Data?
     
     // MARK: properties to keep track of
     // Current Module
@@ -22,7 +25,7 @@ class ContentModel: ObservableObject {
     
     init() {
         modules = Services.decodeLocalJson(filename: "data")
-        style = Services.parseStyleHtml(filename: "style")
+        styleData = Services.parseStyleHtml(filename: "style")
     }
     
     // MARK: - Module Nav Methods
@@ -45,6 +48,7 @@ class ContentModel: ObservableObject {
         
         currentLessonIndex = lessonIndex < lessons.count ? lessonIndex : 0
         currentLesson = lessons[currentLessonIndex]
+        lessonDescription = addStyling(currentLesson!.explanation)
     }
     
     func advanceLesson() {
@@ -55,14 +59,36 @@ class ContentModel: ObservableObject {
         if currentLessonIndex < currentModule!.content.lessons.count {
             // Update
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
+            lessonDescription = addStyling(currentLesson!.explanation)
         } else {
             // Out of lessons. Reset.
-            currentLesson = nil
             currentLessonIndex = 0
+            currentLesson = nil
         }
     }
     
     func hasNextLesson() -> Bool {
         return (currentLessonIndex + 1) < currentModule!.content.lessons.count
+    }
+    
+    // MARK: - Code Styling
+    private func addStyling(_ htmlString: String) -> NSAttributedString {
+        var result = NSAttributedString()
+        var data = Data()
+        
+        // Styling Data
+        if let style = styleData {
+            data.append(style)
+        }
+        
+        // HTML Data
+        data.append(Data(htmlString.utf8))
+        
+        // Convert
+        if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil){
+            result = attributedString
+        }
+        
+        return result
     }
 }

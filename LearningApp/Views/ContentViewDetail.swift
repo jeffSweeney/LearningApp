@@ -23,7 +23,7 @@ struct ContentViewDetail: View {
                 }
                 
                 // MARK: Description
-                // TODO: Implement
+                CodeTextView()
                 
                 // MARK: Next Lesson
                 if contentModel.hasNextLesson() {
@@ -50,6 +50,7 @@ struct ContentViewDetail: View {
             }
         }
         .padding()
+        .navigationBarTitle(contentModel.currentLesson?.title ?? "")
     }
 }
 
