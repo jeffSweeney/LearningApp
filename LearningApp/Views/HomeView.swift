@@ -21,11 +21,13 @@ struct HomeView: View {
                         ForEach(contentModel.modules) { module in
                             VStack (spacing: 20) {
                                 // MARK: Content Card
-                                NavigationLink(destination: ContentView().onAppear(perform: {
-                                    contentModel.beginModule(module.id)
-                                })) {
-                                    // MARK: Content Card
-                                    HomeViewCard(userActionType: module.content, category: module.category)
+                                NavigationLink(
+                                    destination: ContentView().onAppear(perform: {
+                                        contentModel.beginModule(module.id)
+                                    }),
+                                    tag: module.id,
+                                    selection: $contentModel.currentContentSelected) {
+                                        HomeViewCard(userActionType: module.content, category: module.category)
                                 }
                                 
                                 // MARK: Test Card
