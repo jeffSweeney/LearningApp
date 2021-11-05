@@ -10,10 +10,6 @@ import Foundation
 class ContentModel: ObservableObject {
     @Published var modules: [Module]
     
-    // Current lesson explanation
-    @Published var lessonDescription = NSAttributedString()
-    var styleData: Data?
-    
     // MARK: properties to keep track of
     // Current Module
     @Published var currentModule: Module?
@@ -22,6 +18,13 @@ class ContentModel: ObservableObject {
     // Current Lesson
     @Published var currentLesson: Lesson?
     var currentLessonIndex = 0
+    
+    // Current lesson explanation
+    @Published var lessonDescription = NSAttributedString()
+    var styleData: Data?
+    
+    // Current selected content and test
+    @Published var currentContentSelected: Int?
     
     init() {
         modules = Services.decodeLocalJson(filename: "data")
