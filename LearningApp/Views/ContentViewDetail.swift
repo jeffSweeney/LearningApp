@@ -30,19 +30,14 @@ struct ContentViewDetail: View {
                     let nextLessonIndex = contentModel.currentLessonIndex+1
                     let nextLesson = contentModel.currentModule!.content.lessons[nextLessonIndex].title
                     
-                    Button(action: {contentModel.advanceLesson()}) {
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(.green)
-                                .cornerRadius(10)
-                                .shadow(radius: 5)
-                                .frame(height: 48)
-                            
-                            Text("Next Lesson: \(nextLesson)")
-                                .bold()
-                                .foregroundColor(.white)
-                        }
-                    }
+                    ButtonView(
+                        theAction: {contentModel.advanceLesson()},
+                        buttonText: "Next Lesson: \(nextLesson)")
+                } else {
+                    // Show complete button and unwind back
+                    ButtonView(
+                        theAction: {contentModel.currentContentSelected = nil},
+                        buttonText: "Complete")
                 }
                 
             } else {
