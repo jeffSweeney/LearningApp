@@ -19,12 +19,17 @@ class ContentModel: ObservableObject {
     @Published var currentLesson: Lesson?
     var currentLessonIndex = 0
     
-    // Current lesson explanation
-    @Published var lessonDescription = NSAttributedString()
+    // Current code test to display
+    @Published var codeText = NSAttributedString()
     var styleData: Data?
+    
+    // Current question
+    @Published var currentQuestion: Question?
+    var currentQuestionIndex = 0
     
     // Current selected content and test
     @Published var currentContentSelected: Int?
+    @Published var currentTestSelected: Int?
     
     init() {
         modules = Services.decodeLocalJson(filename: "data")
@@ -51,7 +56,7 @@ class ContentModel: ObservableObject {
         
         currentLessonIndex = lessonIndex < lessons.count ? lessonIndex : 0
         currentLesson = lessons[currentLessonIndex]
-        lessonDescription = addStyling(currentLesson!.explanation)
+        codeText = addStyling(currentLesson!.explanation)
     }
     
     func advanceLesson() {
@@ -62,7 +67,7 @@ class ContentModel: ObservableObject {
         if currentLessonIndex < currentModule!.content.lessons.count {
             // Update
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
-            lessonDescription = addStyling(currentLesson!.explanation)
+            codeText = addStyling(currentLesson!.explanation)
         } else {
             // Out of lessons. Reset.
             currentLessonIndex = 0
@@ -72,6 +77,19 @@ class ContentModel: ObservableObject {
     
     func hasNextLesson() -> Bool {
         return (currentLessonIndex + 1) < currentModule!.content.lessons.count
+    }
+    
+    // MARK: - Test Nav Methods
+    func beginTest(_ moduleId: Int) {
+        // Set the current module
+        beginModule(moduleId)
+        
+        // If there are questions, set at first question
+        currentQuestionIndex = 0
+        if currentModule?.test.questions.count ?? 0 > 0 {
+            currentQuestion = currentModule!.test.questions[currentQuestionIndex]
+            codeText = addStyling(currentQuestion!.content)
+        }
     }
     
     // MARK: - Code Styling
