@@ -31,7 +31,14 @@ struct HomeView: View {
                                 }
                                 
                                 // MARK: Test Card
-                                HomeViewCard(userActionType: module.test, category: module.category)
+                                NavigationLink(
+                                    destination: TestView().onAppear(perform: {
+                                        contentModel.beginTest(module.id)
+                                    }),
+                                    tag: module.id,
+                                    selection: $contentModel.currentTestSelected) {
+                                        HomeViewCard(userActionType: module.test, category: module.category)
+                                    }
                             }
                         }
                     }
