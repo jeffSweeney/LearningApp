@@ -29,7 +29,7 @@ struct ContentView: View {
                 }
             }
             .padding()
-            .navigationTitle("Learn \(contentModel.currentModule?.category ?? "")")
+            .navigationBarTitle("Learn \(contentModel.currentModule?.category ?? "")")
             .accentColor(.black)
         }
     }
