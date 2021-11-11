@@ -10,19 +10,21 @@ import SwiftUI
 struct ButtonView: View {
     var theAction: () -> Void
     var buttonText: String
+    var cardColor: Color = Color.green
+    var textColor: Color = Color.white
     
     var body: some View {
         Button(action: theAction) {
             ZStack {
                 Rectangle()
-                    .foregroundColor(.green)
+                    .foregroundColor(cardColor)
                     .cornerRadius(10)
                     .shadow(radius: 5)
                     .frame(height: 48)
                 
                 Text(buttonText)
                     .bold()
-                    .foregroundColor(.white)
+                    .foregroundColor(textColor)
             }
         }
     }
