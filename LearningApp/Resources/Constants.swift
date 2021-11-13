@@ -9,5 +9,7 @@ import Foundation
 
 struct Constants {
     
-    static var hostedVideoUrl = "https://codewithchris.github.io/learningJSON/"
+    static let HostedVideoUrl = "https://codewithchris.github.io/learningJSON/"
+    
+    static let HostedJsonContent = "https://jeffsweeney.github.io/LearningApp_Pages/data2.json"
 }
