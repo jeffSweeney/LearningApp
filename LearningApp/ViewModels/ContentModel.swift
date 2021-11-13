@@ -92,6 +92,26 @@ class ContentModel: ObservableObject {
         }
     }
     
+    func advanceQuestion() {
+        // Advance the question index
+        currentQuestionIndex += 1
+        
+        // Check that in range
+        if currentQuestionIndex < currentModule!.test.questions.count {
+            // Advance the question
+            currentQuestion = currentModule!.test.questions[currentQuestionIndex]
+            codeText = addStyling(currentQuestion!.content)
+        } else {
+            // Set back to front
+            currentQuestionIndex = 0
+            currentQuestion = nil
+        }
+    }
+    
+    func hasNextQuestion() -> Bool {
+        return (currentQuestionIndex + 1) < currentModule!.content.lessons.count
+    }
+    
     // MARK: - Code Styling
     private func addStyling(_ htmlString: String) -> NSAttributedString {
         var result = NSAttributedString()
