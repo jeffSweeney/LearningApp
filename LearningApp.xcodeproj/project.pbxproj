@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		634636A1273F490400D74A49 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634636A0273F490400D74A49 /* ResultsView.swift */; };
 		63496B10272D9377005AEA77 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63496B0F272D9377005AEA77 /* AVKit.framework */; };
 		63496B12272D95B0005AEA77 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63496B11272D95B0005AEA77 /* Constants.swift */; };
 		63496B64273314EA005AEA77 /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63496B63273314EA005AEA77 /* CodeTextView.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		634636A0273F490400D74A49 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		63496B0D272D9359005AEA77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		63496B0F272D9377005AEA77 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		63496B11272D95B0005AEA77 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				63496B63273314EA005AEA77 /* CodeTextView.swift */,
 				63A435772735878C00D82779 /* ButtonView.swift */,
 				63A435962736E12600D82779 /* TestView.swift */,
+				634636A0273F490400D74A49 /* ResultsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				63E0621A2728A7EA00F1188E /* LearningApp.swift in Sources */,
 				63E0622C2728A8C700F1188E /* ContentModel.swift in Sources */,
 				63E0623F27298F2C00F1188E /* HomeViewCard.swift in Sources */,
+				634636A1273F490400D74A49 /* ResultsView.swift in Sources */,
 				63A435972736E12600D82779 /* TestView.swift in Sources */,
 				63496B64273314EA005AEA77 /* CodeTextView.swift in Sources */,
 			);
