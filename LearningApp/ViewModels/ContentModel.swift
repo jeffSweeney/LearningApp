@@ -8,7 +8,7 @@
 import Foundation
 
 class ContentModel: ObservableObject {
-    @Published var modules: [Module]
+    @Published var modules = [Module]()
     
     // MARK: properties to keep track of
     // Current Module
@@ -32,7 +32,14 @@ class ContentModel: ObservableObject {
     @Published var currentTestSelected: Int?
     
     init() {
-        modules = Services.decodeLocalJson(filename: "data")
+        // Set modules with local and remote data
+        // Must set publised variables from main thread. This will enforce both
+        // local and remote to do that.
+        DispatchQueue.main.async {
+            self.decodeLocalJson()
+            self.decodeRemoteJson()
+        }
+        
         styleData = Services.parseStyleHtml(filename: "style")
     }
     
@@ -131,5 +138,65 @@ class ContentModel: ObservableObject {
         }
         
         return result
+    }
+    
+    // MARK: - Modules initialization
+    func decodeLocalJson() {
+        // Get URL
+        if let url = Bundle.main.url(forResource: "data", withExtension: "json") {
+            // Get data at url
+            do {
+                let data = try Data(contentsOf: url)
+                
+                // Decode the data
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    self.modules += try jsonDecoder.decode([Module].self, from: data)
+                } catch {
+                    // Could not decode the data
+                    print(error)
+                }
+            } catch {
+                // Could not get data object from url
+                print(error)
+            }
+        }
+    }
+    
+    private func decodeRemoteJson() {
+        // Define string path to GH pages
+        let pathString = "https://jeffsweeney.github.io/LearningApp_Pages/data2.json"
+        
+        // Get URL
+        let url = URL(string: pathString)
+        
+        // Guard against nil url
+        guard url != nil else {
+            return
+        }
+        
+        // Generate URL request
+        let request = URLRequest(url: url!)
+        
+        // Get the session and define data task
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (data, _, error) in
+            // Guard against task error
+            guard error == nil else {
+                return
+            }
+            
+            // No error - decode the data
+            do {
+                let decoder = JSONDecoder()
+                self.modules += try decoder.decode([Module].self, from: data!)
+            } catch {
+                // Couldn't decode json
+                print(error)
+            }
+        }
+        
+        // Kick off tast
+        task.resume()
     }
 }
