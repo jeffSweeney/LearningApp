@@ -71,8 +71,7 @@ struct TestView: View {
             .navigationBarTitle("\(contentModel.currentModule?.category ?? "") Test")
             .accentColor(.black)
         } else {
-            // Gives moment for currentQuestion to be set
-            ProgressView()
+            ResultsView(numCorrect: numCorrect)
         }
     }
     
