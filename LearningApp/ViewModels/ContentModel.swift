@@ -140,7 +140,7 @@ class ContentModel: ObservableObject {
         return result
     }
     
-    // MARK: - Modules initialization
+    // MARK: - Local and remote JSON decoding
     func decodeLocalJson() {
         // Get URL
         if let url = Bundle.main.url(forResource: "data", withExtension: "json") {
@@ -164,11 +164,8 @@ class ContentModel: ObservableObject {
     }
     
     private func decodeRemoteJson() {
-        // Define string path to GH pages
-        let pathString = "https://jeffsweeney.github.io/LearningApp_Pages/data2.json"
-        
         // Get URL
-        let url = URL(string: pathString)
+        let url = URL(string: Constants.HostedJsonContent)
         
         // Guard against nil url
         guard url != nil else {
@@ -196,7 +193,7 @@ class ContentModel: ObservableObject {
             }
         }
         
-        // Kick off tast
+        // Kick off task
         task.resume()
     }
 }

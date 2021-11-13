@@ -15,7 +15,7 @@ struct ContentViewDetail: View {
         VStack {
             // MARK: Video if available
             if let lesson = contentModel.currentLesson {
-                if let url = URL(string: "\(Constants.hostedVideoUrl)\(lesson.video)") {
+                if let url = URL(string: "\(Constants.HostedVideoUrl)\(lesson.video)") {
                     VideoPlayer(player: AVPlayer(url: url))
                         .cornerRadius(10)
                 } else {
