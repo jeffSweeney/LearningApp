@@ -47,16 +47,26 @@ struct TestView: View {
                 }
                 
                 // Submit Button
-                ButtonView(theAction: {
-                    submitted = true
-                    
-                    // Check answer and keep track
-                    if selectedAnswerIndex == question.correctIndex {
-                        numCorrect += 1
-                    }
-                }, buttonText: "Submit")
-                    .padding()
-                    .disabled(selectedAnswerIndex == nil)
+                if submitted {
+                    let buttonText = contentModel.hasNextQuestion() ? "Next Question" : "Finished"
+                    ButtonView(theAction: {
+                        submitted = false
+                        selectedAnswerIndex = nil
+                        contentModel.advanceQuestion()
+                    }, buttonText: buttonText)
+                        .padding()
+                } else {
+                    ButtonView(theAction: {
+                        submitted = true
+                        
+                        // Check answer and keep track
+                        if selectedAnswerIndex == question.correctIndex {
+                            numCorrect += 1
+                        }
+                    }, buttonText: "Submit")
+                        .padding()
+                        .disabled(selectedAnswerIndex == nil)
+                }
             }
             .navigationBarTitle("\(contentModel.currentModule?.category ?? "") Test")
             .accentColor(.black)
