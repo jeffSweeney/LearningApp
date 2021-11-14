@@ -33,12 +33,8 @@ class ContentModel: ObservableObject {
     
     init() {
         // Set modules with local and remote data
-        // Must set publised variables from main thread. This will enforce both
-        // local and remote to do that.
-        DispatchQueue.main.async {
-            self.decodeLocalJson()
-            self.decodeRemoteJson()
-        }
+        self.decodeLocalJson()
+        self.decodeRemoteJson()
         
         styleData = Services.parseStyleHtml(filename: "style")
     }
@@ -151,7 +147,12 @@ class ContentModel: ObservableObject {
                 // Decode the data
                 do {
                     let jsonDecoder = JSONDecoder()
-                    self.modules += try jsonDecoder.decode([Module].self, from: data)
+                    let localModules = try jsonDecoder.decode([Module].self, from: data)
+                    
+                    // Published fields MUST be updated by the main thread
+                    DispatchQueue.main.async {
+                        self.modules += localModules
+                    }
                 } catch {
                     // Could not decode the data
                     print(error)
@@ -186,7 +187,12 @@ class ContentModel: ObservableObject {
             // No error - decode the data
             do {
                 let decoder = JSONDecoder()
-                self.modules += try decoder.decode([Module].self, from: data!)
+                let remoteModules = try decoder.decode([Module].self, from: data!)
+                
+                // Published fields MUST be updated by the main thread
+                DispatchQueue.main.async {
+                    self.modules += remoteModules
+                }
             } catch {
                 // Couldn't decode json
                 print(error)
