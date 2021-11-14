@@ -48,6 +48,22 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("Get Started")
+            // Navigating between modules can result in index out of range errors. When we
+            // "drill back up" from a module, we know contentModel.currentContentSelected is
+            // set to nil. We can detect when we've drilled back up by listening to when this
+            // field changes back to nil. When it does, we know we must set the currentModule
+            // back to nil.
+            .onChange(of: contentModel.currentContentSelected, perform: { changedValue in
+                if changedValue == nil {
+                    contentModel.currentModule = nil
+                }
+            })
+            // Same logic for test
+            .onChange(of: contentModel.currentTestSelected, perform: { changedValue in
+                if changedValue == nil {
+                    contentModel.currentModule = nil
+                }
+            })
             
         }
         .navigationViewStyle(.stack)
